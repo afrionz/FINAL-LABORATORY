@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
 
 class Department(models.Model):
@@ -61,6 +61,9 @@ class Reservation(models.Model):
             viewname='reservation_detail',
             kwargs={'pk': self.pk}
         )
+
+    def get_success_url(self):
+        return reverse_lazy('home')
 
 
 class MaintenanceRequest(models.Model):

@@ -22,15 +22,9 @@ class FacilityDetailView(DetailView):
 
 class ReservationCreateView(CreateView):
     model = Reservation
-    fields = [
-        'facility',
-        'purpose',
-        'date_reserved',
-        'start_time',
-        'end_time'
-    ]
+    fields = ['facility','purpose','date_reserved','start_time','end_time']
     template_name = 'app/reservation_create.html'
-    success_url = reverse_lazy('facility_list')
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -40,7 +34,7 @@ class MaintenanceRequestCreateView(CreateView):
     model = MaintenanceRequest
     fields = ['facility','issue_description','priority']
     template_name = 'app/maintenance_create.html'
-    success_url = reverse_lazy('facility_list')
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         form.instance.reported_by = self.request.user

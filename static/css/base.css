@@ -41,9 +41,80 @@ header a:hover {
     margin: 0px;
     border-radius: 50%;
 }
-.container{
+
+/*LOGIN PAGE*/
+
+.login-wrapper {
+    min-height: 80vh;
+    display: flex;
     align-items: center;
+    justify-content: center;
 }
+
+.login-card {
+    width: 100%;
+    max-width: 380px;
+    padding: 35px 30px;
+    background: linear-gradient(135deg, #f7fbff, #eef4ff);
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.login-card h2 {
+    margin-bottom: 5px;
+    color: #1f5edb;
+}
+
+.login-subtext {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Inputs */
+.login-card .form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.login-card label {
+    font-weight: 600;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Button */
+.login-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Footer */
+.login-footer {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.signup-link {
+    color: #1f5edb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
+
 
 .dropbtn {
     cursor: pointer;

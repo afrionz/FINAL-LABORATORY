@@ -1,21 +1,39 @@
 {% extends 'app/base.html' %}
 {% load static %}
 {% block content %}
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  <div class="container">
-      <label for="username">Username</label>
-      <input type="text" placeholder="Enter your username" name="username" required>
-      <br>
-      <br>
-      <label for="password">Password</label>
-      <input type="password" placeholder="Enter your password" name="password" required>
-  </div>
-  <button type="submit">Log in</button>
-</form>
+<div class="login-wrapper">
+    <div class="login-card">
+        <h2>Login</h2>
+        <p class="login-subtext">Access your account to continue</p>
 
-<p>Don’t have an account?</p>
-<a href="{% url 'signup' %}"><button type="button">Sign up</button></a>
+        <form method="post">
+            {% csrf_token %}
 
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text"
+                       name="username"
+                       placeholder="Enter your username"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password"
+                       name="password"
+                       placeholder="Enter your password"
+                       required>
+            </div>
+
+            <button type="submit" class="btn-primary login-btn">
+                Log In
+            </button>
+        </form>
+
+        <div class="login-footer">
+            <p>Don’t have an account?</p>
+            <a href="{% url 'signup' %}" class="signup-link">Create one</a>
+        </div>
+    </div>
+</div>
 {% endblock content %}

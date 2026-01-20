@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
  <h2>Create Reservation</h2>
-<form method="post" action="{% url 'maintenance_create'%}">
+<form method="post">
     {% csrf_token %}
 
     <div class="form-group">
@@ -30,7 +30,11 @@
         {{ form.purpose }}
     </div>
 
-    <button type="submit" class="btn-primary">Submit Reservation</button>
+    {% if user.is_authenticated %}
+        <button type="submit" class="btn-primary">Submit</button>
+    {% else %}
+        <a href="{% url 'login' %}" class="btn-primary">Login to Submit</a>
+    {% endif %}
 </form>
 
 {% endblock content %}

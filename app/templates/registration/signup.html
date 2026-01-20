@@ -1,21 +1,47 @@
 {% extends 'app/base.html' %}
 {% load static %}
 {% block content %}
-<h2>Sign Up</h2>
-<form method="post">
-  {% csrf_token %}
-  <div class="container">
-      <label for="username">Username</label>
-      <input type="text" placeholder="Enter your username" name="username" required>
-      <br>
-      <br>
-      <label for="password1">Password</label>
-      <input type="password" placeholder="Enter your password" name="password1" required>
-      <br>
-      <br>
-      <label for="password2">Password</label>
-      <input type="password" placeholder="Re-enter your password" name="password2" required>
-  </div>
-  <button type="submit">Sign Up</button>
-</form>
+<div class="login-wrapper">
+    <div class="login-card">
+        <h2>Create Account</h2>
+        <p class="login-subtext">Register to use the system</p>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text"
+                       name="username"
+                       placeholder="Choose a username"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="password1">Password</label>
+                <input type="password"
+                       name="password1"
+                       placeholder="Create a password"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="password2">Confirm Password</label>
+                <input type="password"
+                       name="password2"
+                       placeholder="Re-enter your password"
+                       required>
+            </div>
+
+            <button type="submit" class="btn-primary login-btn">
+                Sign Up
+            </button>
+        </form>
+
+        <div class="login-footer">
+            <p>Already have an account?</p>
+            <a href="{% url 'login' %}" class="signup-link">Log in</a>
+        </div>
+    </div>
+</div>
 {% endblock content %}

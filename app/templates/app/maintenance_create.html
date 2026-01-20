@@ -4,12 +4,6 @@
 <form method="post">
     {% csrf_token %}
 
-    {% if form.errors %}
-     <div style="color: red;">
-        {{ form.errors }}
-     </div>
-    {% endif %}
-
     <div class="form-group">
         {{ form.facility.label_tag }}
         {{ form.facility }}
@@ -32,6 +26,11 @@
         {{ form.priority }}
     </div>
 
-    <button type="submit" class="btn-primary">Submit</button>
+    {% if user.is_authenticated %}
+        <button type="submit" class="btn-primary">Submit</button>
+    {% else %}
+        <a href="{% url 'login' %}" class="btn-primary">Login to Submit</a>
+    {% endif %}
+
 </form>
 {% endblock content %}
