@@ -1,0 +1,11 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+
+    <h2>{{ facility.facility_name }}</h2>
+    <p>Type: {{ facility.facility_type }}</p>
+    <p>Location: {{ facility.location }}</p>
+    <p>Capacity: {{ facility.capacity }}</p>
+
+<a href="{% url 'reservation_create' %}">Reserve this Facility</a>
+{% endblock content %}

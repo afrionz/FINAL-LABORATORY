@@ -1,0 +1,36 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+ <h2>Create Reservation</h2>
+<form method="post" action="{% url 'maintenance_create'%}">
+    {% csrf_token %}
+
+    <div class="form-group">
+        {{ form.facility.label_tag }}
+        {{ form.facility }}
+    </div>
+
+    <div class="form-group">
+        {{ form.date_reserved.label_tag }}
+        {{ form.date_reserved }}
+    </div>
+
+    <div class="form-group">
+        {{ form.start_time.label_tag }}
+        {{ form.start_time }}
+    </div>
+
+    <div class="form-group">
+        {{ form.end_time.label_tag }}
+        {{ form.end_time }}
+    </div>
+
+    <div class="form-group">
+        {{ form.purpose.label_tag }}
+        {{ form.purpose }}
+    </div>
+
+    <button type="submit" class="btn-primary">Submit Reservation</button>
+</form>
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<h2>Campus Facilities</h2>
+
+<div class="facility-list">
+    {% for facility in facilities %}
+        <div class="facility-item">
+            <h3>{{ facility.facility_name }}    </h3>
+            <p>{{ facility.description }}</p>
+
+            <a href="{% url 'facility_detail' facility.id %}" class="btn-primary">
+                View Details
+            </a>
+        </div>
+    {% empty %}
+        <p>No facilities available.</p>
+    {% endfor %}
+</div>
+{% endblock content %}

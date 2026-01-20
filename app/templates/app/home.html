@@ -1,7 +1,41 @@
+
 {% extends 'app/base.html' %}
 {% load static %}
-
 {% block content %}
-    <h1>Hello World</h1>
-<img class="mylogo" src="{% static 'images/logo.png' %}">
+<div class="home-hero">
+    <div class="hero-text">
+        <h1>Welcome to the Campus Facility <br> Management System</h1>
+        <p>Easily reserve facilities and submit maintenance requests.</p>
+
+        <div class="hero-buttons">
+            <a href="{% url 'reservation_create' %}" class="btn-primary">
+                Reserve a Facility
+            </a>
+            <a href="{% url 'maintenance_create' %}" class="btn-secondary">
+                Request Maintenance
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <img src="{% static 'images/campus.jpg' %}" alt="Campus">
+    </div>
+</div>
+
+<div class="feature-section">
+    <div class="feature-card">
+        <h3>Reserve Facilities</h3>
+        <p>Reserve classrooms, laboratories, and halls.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>Report Issues</h3>
+        <p>Submit maintenance requests easily.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>Fast & Easy</h3>
+        <p>Simple and efficient system.</p>
+    </div>
+</div>
 {% endblock content %}
