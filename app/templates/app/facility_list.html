@@ -6,9 +6,8 @@
 <div class="facility-list">
     {% for facility in facilities %}
         <div class="facility-item">
-            <h3>{{ facility.facility_name }}    </h3>
+            <h3>{{ facility.facility_name }}</h3>
             <p>{{ facility.description }}</p>
-
             <a href="{% url 'facility_detail' facility.id %}" class="btn-primary">
                 View Details
             </a>

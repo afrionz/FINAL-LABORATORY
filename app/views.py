@@ -3,6 +3,8 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Facility, Reservation, MaintenanceRequest
+from django.forms import modelform_factory
+from django import forms
 
 
 class HomePageView(TemplateView):
@@ -22,9 +24,22 @@ class FacilityDetailView(DetailView):
 
 class ReservationCreateView(CreateView):
     model = Reservation
-    fields = ['facility','purpose','date_reserved','start_time','end_time']
     template_name = 'app/reservation_create.html'
     success_url = reverse_lazy('home')
+
+    def get_form_class(self):
+        return modelform_factory(
+            Reservation,
+            fields=['facility', 'purpose', 'date_reserved', 'start_time', 'end_time'],
+            widgets={
+                'date_reserved': forms.DateInput(attrs={'type': 'date'}),
+                'start_time': forms.TimeInput(attrs={'type': 'time'}),
+                'end_time': forms.TimeInput(attrs={'type': 'time'}),
+            }
+        )
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
     def form_valid(self, form):
         form.instance.user = self.request.user
