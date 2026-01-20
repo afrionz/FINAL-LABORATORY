@@ -17,6 +17,6 @@ urlpatterns = [
 
     path('reserve/', ReservationCreateView.as_view(), name='reservation_create'),
     path('maintenance/', MaintenanceRequestCreateView.as_view(), name='maintenance_create'),
-    path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
